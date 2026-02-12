@@ -59,7 +59,14 @@ export class GatewayClient {
   connect(url: string, options: { token?: string; password?: string } = {}): void {
     this.disconnect();
     this.connectParams = { url, token: options.token, password: options.password };
-    const wsUrl = url.startsWith("ws") ? url : `ws://${url.replace(/^https?:\/\//, "")}`;
+    const normalized = url.replace(/^https?:\/\//, "").replace(/\/+$/, "");
+    const wsUrl = url.startsWith("wss")
+      ? url
+      : url.startsWith("ws://")
+        ? url
+        : url.startsWith("https://")
+          ? `wss://${normalized}`
+          : `ws://${normalized}`;
     this.setState("connecting");
     try {
       this.ws = new WebSocket(wsUrl);
