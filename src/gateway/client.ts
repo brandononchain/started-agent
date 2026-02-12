@@ -42,6 +42,8 @@ export class GatewayClient {
   private listener: GatewayListener = {};
   private _state: GatewayConnectionState = "disconnected";
   private connectParams: { url: string; token?: string; password?: string } | null = null;
+  /** Last WebSocket URL we attempted (for troubleshooting). */
+  lastWsUrl: string | null = null;
 
   get state(): GatewayConnectionState {
     return this._state;
@@ -67,6 +69,7 @@ export class GatewayClient {
         : url.startsWith("https://")
           ? `wss://${normalized}`
           : `ws://${normalized}`;
+    this.lastWsUrl = wsUrl;
     this.setState("connecting");
     try {
       this.ws = new WebSocket(wsUrl);
@@ -121,8 +124,13 @@ export class GatewayClient {
       this.ws = null;
       this.pending.forEach((p) => p.reject(new Error("Connection closed")));
       this.pending.clear();
-      if (this._state !== "error") {
-        this.setState("disconnected", ev.code === 1008 ? "Pairing required" : undefined);
+      const reason =
+        ev.reason ||
+        (ev.code === 1008 ? "Pairing required" : ev.code === 1006 ? "Connection failed (check URL, port, and firewall)" : undefined);
+      if (ev.code !== 1000 && ev.code !== 1001) {
+        this.setState("error", reason || "Connection closed");
+      } else if (this._state !== "error") {
+        this.setState("disconnected", reason);
       }
     };
   }
@@ -211,6 +219,7 @@ export class GatewayClient {
       this.ws = null;
     }
     this.connectParams = null;
+    this.lastWsUrl = null;
     this.setState("disconnected");
   }
 

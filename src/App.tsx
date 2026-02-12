@@ -105,7 +105,17 @@ export default function App() {
               Connect to your Started Agent gateway to chat, manage config, cron, skills, and more.
             </p>
             {state === "error" && error && (
-              <p className="welcome-error">{error}</p>
+              <>
+                <p className="welcome-error">{error}</p>
+                {gatewayClient.lastWsUrl && (
+                  <p className="welcome-url">Tried: <code>{gatewayClient.lastWsUrl}</code></p>
+                )}
+                {gatewayClient.lastWsUrl?.includes(".ts.net") && (
+                  <p className="welcome-hint welcome-troubleshoot">
+                    Using Tailscale? Funnel often doesn’t support WebSockets. Use <strong>Tailscale Serve</strong> to expose the gateway, or put a reverse proxy (e.g. Caddy) in front that supports WSS and point Funnel at it. If the gateway port is exposed, try <code>wss://your-machine.ts.net:18789</code>.
+                  </p>
+                )}
+              </>
             )}
             {state === "connecting" && (
               <p className="welcome-connecting">Connecting…</p>
