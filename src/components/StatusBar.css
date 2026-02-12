@@ -1,0 +1,52 @@
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1.25rem;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.status-brand {
+  margin-left: auto;
+}
+
+.status-brand a {
+  color: var(--text-muted);
+}
+
+.status-brand a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.status-dot--connected {
+  background: var(--success);
+}
+
+.status-dot--connecting,
+.status-dot--challenge {
+  background: var(--accent);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.status-dot--error {
+  background: var(--error);
+}
+
+.status-dot--disconnected {
+  background: var(--text-muted);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

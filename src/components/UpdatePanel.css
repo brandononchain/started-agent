@@ -1,0 +1,18 @@
+.update-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.update-desc {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.update-result {
+  margin: 0;
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

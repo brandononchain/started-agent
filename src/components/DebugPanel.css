@@ -1,0 +1,39 @@
+.debug-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.debug-section {
+  padding: 0.75rem 0;
+}
+
+.debug-section h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.debug-pre {
+  margin: 0;
+  padding: 1rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.debug-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+}
+
+.debug-list li {
+  margin-bottom: 0.25rem;
+}
