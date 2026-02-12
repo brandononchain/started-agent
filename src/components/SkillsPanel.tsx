@@ -56,7 +56,7 @@ export function SkillsPanel() {
       </div>
       {error && <div className="panel-error-inline">{error}</div>}
       {skills.length === 0 ? (
-        <p className="panel-empty">No skills listed. Use gateway CLI to install skills.</p>
+        <p className="panel-empty">No skills listed. Use StartedAI CLI to install skills.</p>
       ) : (
         <ul className="skills-list">
           {skills.map((skill) => (

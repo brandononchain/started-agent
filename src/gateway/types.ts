@@ -1,4 +1,4 @@
-/** Started Agent — Gateway WebSocket protocol types (protocol version 3). */
+/** StartedAI / Started Agent — WebSocket protocol types (protocol version 3). */
 
 export const PROTOCOL_VERSION = 3;
 

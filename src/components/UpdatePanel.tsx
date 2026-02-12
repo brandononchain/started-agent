@@ -28,7 +28,7 @@ export function UpdatePanel() {
         <h2>Update</h2>
       </div>
       <p className="update-desc">
-        Run a package or git update and restart the gateway. Use when you want to pull the latest Started Agent release.
+        Run a package or git update and restart StartedAI. Use when you want to pull the latest StartedAI release.
       </p>
       {error && <div className="panel-error-inline">{error}</div>}
       {result != null && (

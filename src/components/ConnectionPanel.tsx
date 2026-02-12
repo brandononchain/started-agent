@@ -33,7 +33,7 @@ export function ConnectionPanel() {
         <input
           type="text"
           className="connection-url"
-          placeholder="Gateway URL (e.g. ws://127.0.0.1:18789)"
+          placeholder="StartedAI URL (e.g. ws://127.0.0.1:18789)"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && connect()}
@@ -45,7 +45,7 @@ export function ConnectionPanel() {
           value={token}
           onChange={(e) => setToken(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && connect()}
-          title="Gateway auth token"
+          title="StartedAI auth token"
         />
         <button
           type="button"
@@ -76,8 +76,8 @@ export function ConnectionPanel() {
       {expanded && (
         <div className="connection-expanded">
           <p className="connection-hint">
-            Store gateway URL and token in this browser. For remote gateways use{" "}
-            <code>wss://</code> and add this origin to your gateway’s allowed origins.
+            Store StartedAI URL and token in this browser. For remote StartedAI use{" "}
+            <code>wss://</code> and add this origin to StartedAI’s allowed origins.
             By <a href="https://started.dev" target="_blank" rel="noopener noreferrer">started.dev</a>.
           </p>
         </div>

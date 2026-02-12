@@ -47,7 +47,7 @@ export function ConfigPanel() {
         return;
       }
       await gatewayClient.configSet({ config: parsed });
-      setMessage("Config saved. Apply to restart gateway with new config.");
+      setMessage("Config saved. Apply to restart StartedAI with new config.");
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -61,7 +61,7 @@ export function ConfigPanel() {
     setMessage(null);
     try {
       await gatewayClient.configApply();
-      setMessage("Config applied; gateway may restart.");
+      setMessage("Config applied; StartedAI may restart.");
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -96,7 +96,7 @@ export function ConfigPanel() {
       {error && <div className="panel-error-inline">{error}</div>}
       {message && <div className="panel-message">{message}</div>}
       {schema != null && (
-        <p className="panel-hint">Schema available; editing raw JSON. Config file path is set by your gateway.</p>
+        <p className="panel-hint">Schema available; editing raw JSON. Config file path is set by StartedAI.</p>
       )}
       <textarea
         className="config-editor"

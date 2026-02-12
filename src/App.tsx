@@ -102,7 +102,7 @@ export default function App() {
               <a href="https://started.dev" target="_blank" rel="noopener noreferrer">Started</a>
             </h1>
             <p>
-              Connect to your Started Agent gateway to chat, manage config, cron, skills, and more.
+              Connect to your StartedAI gateway to chat, manage config, cron, skills, and more.
             </p>
             {state === "error" && error && (
               <>
@@ -112,7 +112,7 @@ export default function App() {
                 )}
                 {gatewayClient.lastWsUrl?.includes(".ts.net") && (
                   <p className="welcome-hint welcome-troubleshoot">
-                    Using Tailscale? Funnel often doesn’t support WebSockets. Use <strong>Tailscale Serve</strong> to expose the gateway, or put a reverse proxy (e.g. Caddy) in front that supports WSS and point Funnel at it. If the gateway port is exposed, try <code>wss://your-machine.ts.net:18789</code>.
+                    Using Tailscale? Funnel often doesn’t support WebSockets. Use <strong>Tailscale Serve</strong> to expose StartedAI, or put a reverse proxy (e.g. Caddy) in front that supports WSS and point Funnel at it. If the StartedAI port is exposed, try <code>wss://your-machine.ts.net:18789</code>.
                   </p>
                 )}
               </>
@@ -121,7 +121,7 @@ export default function App() {
               <p className="welcome-connecting">Connecting…</p>
             )}
             <p className="welcome-hint">
-              Set the Gateway URL and token in the header, or use{" "}
+              Set the StartedAI URL and token in the header, or use{" "}
               <code>?gatewayUrl=ws://host:18789&token=…</code> in the URL.
             </p>
             <p className="welcome-by">

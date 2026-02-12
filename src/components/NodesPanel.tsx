@@ -47,7 +47,7 @@ export function NodesPanel() {
       </div>
       {error && <div className="panel-error-inline">{error}</div>}
       {nodes.length === 0 ? (
-        <p className="panel-empty">No nodes connected. Pair iOS/Android/macOS nodes via the gateway.</p>
+        <p className="panel-empty">No nodes connected. Pair iOS/Android/macOS nodes via StartedAI.</p>
       ) : (
         <ul className="nodes-list">
           {nodes.map((node) => (
